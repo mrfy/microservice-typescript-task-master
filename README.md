@@ -37,6 +37,89 @@ The goal to of this project is to do the following:
 
 If you have any questions feel free to reach out to us!
 
+## Available end-points
+### GET /users
+Get a list of users.
+
++ Method: `GET`
++ URL: `/users`
+
+```json
+[
+  {
+    "id": 1,
+    "firstName": "John",
+    "lastName": "Ondricka",
+    "email": "Melyssa39@hotmail.com",
+    "createdAt": "2021-04-09T08:14:56.000Z",
+    "updatedAt": "2021-04-12T05:39:35.000Z"
+  },
+  {
+    "id": 2,
+    "firstName": "Jane",
+    "lastName": "McCullough",
+    "email": "Rosie54@yahoo.com",
+    "createdAt": "2021-04-09T08:14:56.000Z",
+    "updatedAt": "2021-04-09T08:14:56.000Z"
+  }
+]
+```
+
+### PATCH /users/:id
+Update part of the user with specific id.
++ Method: `PATCH`
++ URL: `/users/:id`
++ Body:
+
+```js
+{
+  "firstName": "Adam"
+}
+```
+
+### GET /users/:searchQuery
+Get users with a matching result of text-based properties with his Leads included
+
++ Method: `GET`
++ URL: `/users/:searchQuery`
+
+```js
+[
+  {
+    "id": 259,
+    "firstName": "Augusta",
+    "lastName": "Haley",
+    "email": "Tressie99@gmail.com",
+    "createdAt": "2021-04-12T05:38:37.000Z",
+    "updatedAt": "2021-04-12T05:38:37.000Z",
+    "leads": [
+      {
+        "id": 1,
+        "name": "Albacross",
+        "domain": "albacross.com",
+        "lastVisit": "2020-02-11T21:37:00.000Z",
+        "createdAt": "2021-04-12T06:06:32.000Z",
+        "updatedAt": "2021-04-12T06:06:32.000Z",
+        "UserId": 259
+      }
+    ]
+  }
+]
+```
+### POST /leads/:userId
+Create a new lead object that belongs to existing user.
++ Method: `POST`
++ URL: `/leads/:userId`
++ Body:
+
+```js
+{
+  "name": "Albacross",
+  "domain": "albacross.com",
+  "lastVisit": "2020-02-11 21:37:00"
+}
+```
+
 ## Prerequisites
 You need to have [Docker](https://www.docker.com/) installed to run the project
 
